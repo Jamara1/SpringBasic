@@ -1,10 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Hello</title>
+
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="../static/css/bootstrap.css"/>
+    <script th:href="@{/js/jquery.js}" src="../static/js/jquery.js"></script>
+    <script th:href="@{/js/bootstrap.js}" src="../static/js/bootstrap.js"></script>
+
+    <title>Course Spring</title>
 </head>
 <body>
-    <h1>Hello world!</h1>
+
+<!-- NavBar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" th:href="@{/}" href="#">Home</a>
+                <a class="nav-link" href="#">Gallery</a>
+                <a class="nav-link" href="#">Post</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Custom jumbotron</h1>
+        <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in
+            previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your
+            liking.</p>
+        <button class="btn btn-primary btn-lg" type="button">Example button</button>
+    </div>
+</div>
+
+<div class="container mb-4">
+    <div class="row">
+
+        <!-- Cards -->
+        <div th:each="post : ${posts}" class="col-3 m-2">
+            <div class="card" style="width: 18rem;">
+                <img th:src="${post.urlImg}" src="../static/image/image-1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 th:text="${post.title}" class="card-title">Card title</h5>
+                    <p th:text="${post.description}" class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a th:href="@{/home/post/} + ${post.id}" href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 mb-5">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<footer>
+    <p>Jamara</p>
+</footer>
+
 </body>
 </html>

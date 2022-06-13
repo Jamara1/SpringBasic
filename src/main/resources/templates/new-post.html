@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="../static/css/bootstrap.css"/>
+    <script th:href="@{/js/jquery.js}" src="../static/js/jquery.js"></script>
+    <script th:href="@{/js/bootstrap.js}" src="../static/js/bootstrap.js"></script>
+
+    <title>Course Spring</title>
+</head>
+<body>
+
+<!-- NavBar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" th:href="@{/}" href="#">Home</a>
+                <a class="nav-link" href="#">Gallery</a>
+                <a class="nav-link" href="#">Post</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">New Post</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form th:action="@{/home/store}" method="post" th:object="${post}">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="id">Id</label>
+                        <input th:field="*{id}" th:value="*{id}" type="text" class="form-control" id="id" placeholder="Identity">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="title">Title</label>
+                        <input th:field="*{title}" th:value="*{title}" type="text" class="form-control" id="title" placeholder="Title">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="description">Description</label>
+                        <input th:field="*{description}" th:value="*{description}" type="text" class="form-control" id="description" placeholder="Description">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="urlImg">Image</label>
+                        <input th:field="*{urlImg}" th:value="*{urlImg}" type="text" class="form-control" id="urlImg" placeholder="Image">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary my-4">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>Jamara</p>
+</footer>
+
+</body>
+</html>
